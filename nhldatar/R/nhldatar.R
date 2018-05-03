@@ -13,7 +13,7 @@
 library(tidyverse)
 library(rvest)
 
-#'###### -------------**Links**----------------------------------------- ######
+#'###### -------------**Links for first loop**---------------------- ######
 
 all_urls <- c("http://www.hockey-reference.com/leagues/NHL_1991_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1992_games.html",
@@ -72,7 +72,10 @@ for (i in 1:length(all_urls)) {
 
 }
 
-devtools::use_data(NHL_outcomes)
+#'###### -------------**Loop, for statistics**--------------- ######
+
+
+# devtools::use_data(NHL_outcomes)
 
 
 
