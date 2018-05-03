@@ -72,8 +72,6 @@ for (i in 1:length(all_urls)) {
 
 }
 
-#'###### -------------**Loop, for statistics**--------------- ######
-
 #'###### -------------**Saving into a package**--------------- ######
 
 # devtools::use_data(NHL_outcomes)
