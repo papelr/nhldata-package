@@ -9,6 +9,7 @@
 library(tidyverse)
 library(rvest)
 
+#'###### -------------**Links for stats loop**---------------------- ######
 
 #'###### -------------**Loop, for statistics**--------------- ######
 
