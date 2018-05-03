@@ -1,0 +1,12 @@
+Package: nhldatar
+Type: Package
+Title: Scrapes hockey-reference.com for outcomes, attendance, & statistics
+Version: 0.1.0
+Author: Robert Papel, w/ help from Richard Potter
+Maintainer: Maintained by R. Papel, <robertpapel@gmail.com>
+Description: This package simply reads in scraped data from HR, 
+    including outcomes from 1990:2017, and statistics from those years. It
+    combines two different data sets, connected by date. Pretty simple!
+License: None
+Encoding: UTF-8
+LazyData: true
