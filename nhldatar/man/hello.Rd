@@ -1,4 +1,4 @@
-\name{hello}
+\name{Robert Papel}
 \alias{hello}
 \title{Hello, World!}
 \usage{
