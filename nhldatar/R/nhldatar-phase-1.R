@@ -19,11 +19,17 @@ all_urls <- c("http://www.hockey-reference.com/leagues/NHL_1991_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1992_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1993_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1994_games.html",
-              "http://www.hockey-reference.com/leagues/NHL_1995_games.html",
+              # "http://www.hockey-reference.com/leagues/NHL_1995_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1996_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1997_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1998_games.html",
               "http://www.hockey-reference.com/leagues/NHL_1999_games.html",
+              "http://www.hockey-reference.com/leagues/NHL_2000_games.html",
+              "http://www.hockey-reference.com/leagues/NHL_2001_games.html",
+              "http://www.hockey-reference.com/leagues/NHL_2002_games.html",
+              "http://www.hockey-reference.com/leagues/NHL_2003_games.html",
+              "http://www.hockey-reference.com/leagues/NHL_2004_games.html",
+              # "http://www.hockey-reference.com/leagues/NHL_2005_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2006_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2007_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2008_games.html",
@@ -31,15 +37,17 @@ all_urls <- c("http://www.hockey-reference.com/leagues/NHL_1991_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2010_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2011_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2012_games.html",
-              "http://www.hockey-reference.com/leagues/NHL_2013_games.html",
+              # "http://www.hockey-reference.com/leagues/NHL_2013_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2014_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2015_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2016_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2017_games.html")
 
+# Got rid of the lockout seasons, but not sure why 2005 screws up the loop
+
 #'###### -------------**Loop, for outcomes & attendance**--------------- ######
 
-NHL_outcomes <- NULL
+outcomes <- NULL
 
 for (i in 1:length(all_urls)) {
 
@@ -68,13 +76,13 @@ for (i in 1:length(all_urls)) {
     select(Date, Visitor, GVisitor, Home, GHome, Att.)
 
   whole_season <- rbind(season, playoffs)
-  NHL_outcomes <- rbind(NHL_outcomes, whole_season)
+  outcomes <- rbind(outcomes, whole_season)
 
 }
 
 #'###### -------------**Saving into a package**--------------- ######
 
-# devtools::use_data(NHL_outcomes)
+# devtools::use_data(outcomes)
 
 
 
