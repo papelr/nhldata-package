@@ -43,7 +43,7 @@ all_urls <- c("http://www.hockey-reference.com/leagues/NHL_1991_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2016_games.html",
               "http://www.hockey-reference.com/leagues/NHL_2017_games.html")
 
-# Got rid of the lockout seasons, but not sure why 2005 screws up the loop
+# Got rid of the lockout seasons
 
 #'###### -------------**Loop, for outcomes & attendance**--------------- ######
 
