@@ -146,7 +146,7 @@ colnames(team_stats_1998)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_1998
 
-#'###### -------------**1999 (its own table...why? ugh)**------------ ######
+#'###### -------------**1999 (its own table...why..ugh)**------------ ######
 
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1999.html")
 page <- read_html(remDr$getPageSource()[[1]])
@@ -154,12 +154,11 @@ table <- html_table(page, fill = TRUE, header = T)
 table[[28]]
 team_stats_1999 <- table[[28]]
 
-team_stats_1999 <- team_stats_1999[c(1:29), c(1:31)]
+team_stats_1999 <- team_stats_1999[c(1:29), c(2,4:31)]
 colnames(team_stats_1999)[c(1,2,3,4,5,6,7,8,9,
                        10,11,12,13,14,15,16,17,18,19,20,
                        21,22,23,24,25,26,27,28,29,30)] <-
-  c("Team","AvAge", "GP", "W", "L", "T", "Pts", "Pts %", "GF", 
-    "GA", "SRS", "SOS",
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_1999
@@ -171,7 +170,7 @@ page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
 table[[27]]
 team_stats_2000 <- table[[27]]
-
+-
 team_stats_2000 <- team_stats_2000[c(2:22), c(2:30)]
 colnames(team_stats_2000)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                        21,22,23,24,25,26,27,28,29)] <- 
