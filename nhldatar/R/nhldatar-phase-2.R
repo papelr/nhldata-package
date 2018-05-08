@@ -146,7 +146,7 @@ colnames(team_stats_1998)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_1998
 
-#'###### -------------**1999 (its own table...why)**--------------- ######
+#'###### -------------**1999 (its own table...why? ugh)**------------ ######
 
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1999.html")
 page <- read_html(remDr$getPageSource()[[1]])
