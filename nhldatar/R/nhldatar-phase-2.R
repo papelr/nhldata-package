@@ -23,8 +23,8 @@ remDr$open()
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1991.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1991 <- table[[27]]
+table[[25]]
+team_stats_1991 <- table[[25]]
 
 team_stats_1991 <- team_stats_1991[c(2:22), c(2:30)]
 colnames(team_stats_1991)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -39,8 +39,8 @@ team_stats_1991
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1992.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1992 <- table[[27]]
+table[[25]]
+team_stats_1992 <- table[[25]]
 
 team_stats_1992 <- team_stats_1992[c(2:22), c(2:30)]
 colnames(team_stats_1992)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -55,8 +55,8 @@ team_stats_1992
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1993.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1993 <- table[[27]]
+table[[25]]
+team_stats_1993 <- table[[25]]
 
 team_stats_1993 <- team_stats_1993[c(2:22), c(2:30)]
 colnames(team_stats_1993)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -71,8 +71,8 @@ team_stats_1993
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1994.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1994 <- table[[27]]
+table[[25]]
+team_stats_1994 <- table[[25]]
 
 team_stats_1994 <- team_stats_1994[c(2:22), c(2:30)]
 colnames(team_stats_1994)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -103,8 +103,8 @@ team_stats_1994
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1996.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1996 <- table[[27]]
+table[[25]]
+team_stats_1996 <- table[[25]]
 
 team_stats_1996 <- team_stats_1996[c(2:22), c(2:30)]
 colnames(team_stats_1996)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -119,8 +119,8 @@ team_stats_1996
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1997.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1997 <- table[[27]]
+table[[25]]
+team_stats_1997 <- table[[25]]
 
 team_stats_1997 <- team_stats_1997[c(2:22), c(2:30)]
 colnames(team_stats_1997)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -135,8 +135,8 @@ team_stats_1997
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1998.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_1998 <- table[[27]]
+table[[25]]
+team_stats_1998 <- table[[25]]
 
 team_stats_1998 <- team_stats_1998[c(2:22), c(2:30)]
 colnames(team_stats_1998)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -151,8 +151,8 @@ team_stats_1998
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_1999.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[28]]
-team_stats_1999 <- table[[28]]
+table[[26]]
+team_stats_1999 <- table[[26]]
 
 team_stats_1999 <- team_stats_1999[c(2:29), c(2,4:31)]
 colnames(team_stats_1999)[c(1,2,3,4,5,6,7,8,9,
@@ -453,8 +453,8 @@ team_stats_2017
 
 #'###### -------------**Loop**-------------------- ######
 
-for (i in 1:length(lebron_table)) 
-  assign(paste0("table_",i),data.frame(lebron_table[i]))
+# for (i in 1:length(lebron_table)) 
+#   assign(paste0("table_",i),data.frame(lebron_table[i]))
 
 
 #'###### -------------**Detritus of Importance**--------------- ######
