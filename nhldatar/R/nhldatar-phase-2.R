@@ -168,8 +168,8 @@ team_stats_1999
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2000.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[28]]
-team_stats_2000 <- table[[28]]
+table[[26]]
+team_stats_2000 <- table[[26]]
 
 team_stats_2000 <- team_stats_2000[c(2:30), c(2,4:32)]
 colnames(team_stats_2000)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
@@ -184,13 +184,13 @@ team_stats_2000
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2001.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2001 <- table[[27]]
+table[[26]]
+team_stats_2001 <- table[[26]]
 
-team_stats_2001 <- team_stats_2001[c(2:22), c(2:30)]
+team_stats_2001 <- team_stats_2001[c(2:30), c(2,4:32)]
 colnames(team_stats_2001)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2001
@@ -200,13 +200,13 @@ team_stats_2001
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2002.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2002 <- table[[27]]
+table[[26]]
+team_stats_2002 <- table[[26]]
 
-team_stats_2002 <- team_stats_2002[c(2:22), c(2:30)]
+team_stats_2002 <- team_stats_2002[c(2:30), c(2,4:32)]
 colnames(team_stats_2002)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2002
@@ -216,13 +216,13 @@ team_stats_2002
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2003.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2003 <- table[[27]]
+table[[26]]
+team_stats_2003 <- table[[26]]
 
-team_stats_2003 <- team_stats_2003[c(2:22), c(2:30)]
+team_stats_2003 <- team_stats_2003[c(2:30), c(2,4:32)]
 colnames(team_stats_2003)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2003
@@ -232,13 +232,13 @@ team_stats_2003
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2004.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2004 <- table[[27]]
+table[[26]]
+team_stats_2004 <- table[[26]]
 
-team_stats_2004 <- team_stats_2004[c(2:22), c(2:30)]
+team_stats_2004 <- team_stats_2004[c(2:30), c(2,4:32)]
 colnames(team_stats_2004)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2004
@@ -264,13 +264,13 @@ team_stats_2004
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2006.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2006 <- table[[27]]
+table[[26]]
+team_stats_2006 <- table[[26]]
 
-team_stats_2006 <- team_stats_2006[c(2:22), c(2:30)]
+team_stats_2006 <- team_stats_2006[c(2:30), c(2,4:32)]
 colnames(team_stats_2006)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2006
@@ -280,13 +280,13 @@ team_stats_2006
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2007.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2007 <- table[[27]]
+table[[26]]
+team_stats_2007 <- table[[26]]
 
-team_stats_2007 <- team_stats_2007[c(2:22), c(2:30)]
+team_stats_2007 <- team_stats_2007[c(2:30), c(2,4:32)]
 colnames(team_stats_2007)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2007
@@ -296,13 +296,13 @@ team_stats_2007
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2008.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2008 <- table[[27]]
+table[[26]]
+team_stats_2008 <- table[[26]]
 
-team_stats_2008 <- team_stats_2008[c(2:22), c(2:30)]
+team_stats_2008 <- team_stats_2008[c(2:30), c(2,4:32)]
 colnames(team_stats_2008)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2008
@@ -312,13 +312,13 @@ team_stats_2008
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2009.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2009 <- table[[27]]
+table[[26]]
+team_stats_2009 <- table[[26]]
 
-team_stats_2009 <- team_stats_2009[c(2:22), c(2:30)]
+team_stats_2009 <- team_stats_2009[c(2:30), c(2,4:32)]
 colnames(team_stats_2009)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2009
@@ -328,13 +328,13 @@ team_stats_2009
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2010.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2010 <- table[[27]]
+table[[26]]
+team_stats_2010 <- table[[26]]
 
-team_stats_2010 <- team_stats_2010[c(2:22), c(2:30)]
+team_stats_2010 <- team_stats_2010[c(2:30), c(2,4:32)]
 colnames(team_stats_2010)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2010
@@ -344,13 +344,13 @@ team_stats_2010
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2011.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2011 <- table[[27]]
+table[[26]]
+team_stats_2011 <- table[[26]]
 
-team_stats_2011 <- team_stats_2011[c(2:22), c(2:30)]
+team_stats_2011 <- team_stats_2011[c(2:30), c(2,4:32)]
 colnames(team_stats_2011)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2011
@@ -360,13 +360,13 @@ team_stats_2011
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2012.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2012 <- table[[27]]
+table[[26]]
+team_stats_2012 <- table[[26]]
 
-team_stats_2012 <- team_stats_2012[c(2:22), c(2:30)]
+team_stats_2012 <- team_stats_2012[c(2:30), c(2,4:32)]
 colnames(team_stats_2012)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2012
@@ -392,13 +392,13 @@ team_stats_2012
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2014.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2014 <- table[[27]]
+table[[26]]
+team_stats_2014 <- table[[26]]
 
-team_stats_2014 <- team_stats_2014[c(2:22), c(2:30)]
+team_stats_2014 <- team_stats_2014[c(2:30), c(2,4:32)]
 colnames(team_stats_2014)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2014
@@ -408,13 +408,13 @@ team_stats_2014
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2015.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2015 <- table[[27]]
+table[[26]]
+team_stats_2015 <- table[[26]]
 
-team_stats_2015 <- team_stats_2015[c(2:22), c(2:30)]
+team_stats_2015 <- team_stats_2015[c(2:30), c(2,4:32)]
 colnames(team_stats_2015)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2015
@@ -424,13 +424,13 @@ team_stats_2015
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2016.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2016 <- table[[27]]
+table[[26]]
+team_stats_2016 <- table[[26]]
 
-team_stats_2016 <- team_stats_2016[c(2:22), c(2:30)]
+team_stats_2016 <- team_stats_2016[c(2:30), c(2,4:32)]
 colnames(team_stats_2016)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2016
@@ -440,13 +440,13 @@ team_stats_2016
 remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2017.html")
 page <- read_html(remDr$getPageSource()[[1]])
 table <- html_table(page, fill = TRUE, header = T)
-table[[27]]
-team_stats_2017 <- table[[27]]
+table[[26]]
+team_stats_2017 <- table[[26]]
 
-team_stats_2017 <- team_stats_2017[c(2:22), c(2:30)]
+team_stats_2017 <- team_stats_2017[c(2:30), c(2,4:32)]
 colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-                       21,22,23,24,25,26,27,28,29)] <- 
-  c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2017
