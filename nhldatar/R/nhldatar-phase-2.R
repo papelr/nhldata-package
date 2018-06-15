@@ -10,7 +10,6 @@ library(tidyverse)
 library(rvest)
 library(RSelenium)
 
-
 #'###### -------------**RSelenium**--------------- ######
 
 rsDriver(port = 4567L, geckover = NULL, phantomver = NULL)
@@ -450,6 +449,11 @@ colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2017
+
+
+#'###### -------------**Team Stats JOIN**-------------------- ######
+
+# Uhhhhh.....how the hell do I do this?
 
 #'###### -------------**Loop**-------------------- ######
 
