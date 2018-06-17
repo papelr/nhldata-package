@@ -1,6 +1,6 @@
 #' ---------
 #' Title: Phase 3, for nhldatar package
-#' Subtitle: Am I gonna build a stack? 
+#' Subtitle: Adapted from David Sheehan's Poisson example 
 #' Author: Robert Papel
 #' ---------
 
@@ -41,7 +41,7 @@ outcomes <- outcomes %>%
     total_avg_goals = ((avg_home_goals + avg_visitor_goals) / 2)
   ) 
 
-# Using number of goals
+# Using number of goals for prediction model
 model_one <- 
   rbind(
     data.frame(goals = outcomes$GHome,
@@ -59,7 +59,7 @@ summary(model_one)
 predict(model_one,
         data.frame(
           home = 1, 
-          team ="Nashville Predators", 
+          team = "Nashville Predators", 
           opponent = "Chicago Blackhawks"), 
         type ="response")
 
@@ -67,14 +67,31 @@ predict(model_one,
 predict(model_one,
         data.frame(
           home = 0, 
-          team ="Chicago Blackhawks", 
+          team = "Chicago Blackhawks", 
           opponent = "Nashville Predators"), 
         type ="response")
 
+# Probability function / matrix
+simulate_game <- function(stat_model, homeTeam, awayTeam, max_goals = 10) {
+  
+  home_goals <- predict(model_one,
+                            data.frame(home = 1, 
+                                       team = homeTeam,
+                                       opponent = awayTeam), 
+                            type ="response")
+  
+  away_goals <- predict(model_one, 
+                            data.frame(home = 0, 
+                                       team = awayTeam, 
+                                       opponent = homeTeam), 
+                            type ="response")
+  
+  dpois(0: max_goals, home_goals) %>%  
+    dpois(0: max_goals, away_goals) 
+}
 
-
-
-
+simulate_game(model_one, "Nashville Predators", "Chicago Blackhawks", 
+          max_goals = 10)
 
 
 
