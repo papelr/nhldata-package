@@ -4,7 +4,7 @@
 #' Author: Robert Papel
 #' ---------
 
-#'###### -------------**Libraries**------------------------------------- ######
+#'###### -------------**Libraries**---------------------- ######
 
 library(tidyverse)
 library(rvest)
@@ -12,7 +12,8 @@ library(RSelenium)
 
 #'###### -------------**RSelenium**--------------- ######
 
-rsDriver(port = 4567L, geckover = NULL, phantomver = NULL)
+rsDriver(port = 4445L, remoteServerAddr = "73.88.135.181",
+         geckover = NULL, phantomver = NULL)
 remDr <- remoteDriver(browserName = "chrome")
 remDr$open()
 # remDr$close()
