@@ -32,7 +32,7 @@ outcomes %>%
 # Away team goal average: 2.711
 # Average total goals: 2.863
 
-#'###### -------------**TBD Model**---------------------- ######
+#'###### -------------**Poisson Distribtion Model**-------------- ######
 
 outcomes <- outcomes %>% 
   mutate(
@@ -41,6 +41,35 @@ outcomes <- outcomes %>%
     total_avg_goals = ((avg_home_goals + avg_visitor_goals) / 2)
   ) 
 
+# Using number of goals
+model_one <- 
+  rbind(
+    data.frame(goals = outcomes$GHome,
+               team = outcomes$Home,
+               opponent = outcomes$Visitor,
+               home = 1),
+    data.frame(goals = outcomes$GVisitor,
+               team = outcomes$Visitor,
+               opponent = outcomes$Home,
+               home = 0)) %>%
+  glm(goals ~ home + team + opponent, family = poisson (link = log), data = .)
+summary(model_one)
+
+# Prediction for NSH number of goals
+predict(model_one,
+        data.frame(
+          home = 1, 
+          team ="Nashville Predators", 
+          opponent = "Chicago Blackhawks"), 
+        type ="response")
+
+# Prediction for CHI number of goals
+predict(model_one,
+        data.frame(
+          home = 0, 
+          team ="Chicago Blackhawks", 
+          opponent = "Nashville Predators"), 
+        type ="response")
 
 
 
