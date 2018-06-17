@@ -451,15 +451,98 @@ colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2017
 
+#'###### -------------**2018**--------------- ######
+
+remDr$navigate("https://www.hockey-reference.com/leagues/NHL_2018.html")
+page <- read_html(remDr$getPageSource()[[1]])
+table <- html_table(page, fill = TRUE, header = T)
+table[[26]]
+team_stats_2018 <- table[[26]]
+
+team_stats_2018 <- team_stats_2018[c(2:30), c(2,4:32)]
+colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+                            21,22,23,24,25,26,27,28,29,30)] <- 
+  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
+    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+team_stats_2018
+
+########################################################################
+########################################################################
+
+#'###### -------------**Adding Year Column**----------------- ######
+
+team_stats_1991$Year <- 1991
+team_stats_1992$Year <- 1992
+team_stats_1993$Year <- 1993
+team_stats_1994$Year <- 1994
+team_stats_1996$Year <- 1996
+team_stats_1997$Year <- 1997
+team_stats_1998$Year <- 1998
+team_stats_1999$Year <- 1999
+team_stats_2000$Year <- 2000
+team_stats_2001$Year <- 2001
+team_stats_2002$Year <- 2002
+team_stats_2003$Year <- 2003
+team_stats_2004$Year <- 2004
+team_stats_2006$Year <- 2006
+team_stats_2007$Year <- 2007
+team_stats_2008$Year <- 2008
+team_stats_2009$Year <- 2009
+team_stats_2010$Year <- 2010
+team_stats_2011$Year <- 2011
+team_stats_2012$Year <- 2012
+team_stats_2014$Year <- 2014
+team_stats_2015$Year <- 2015
+team_stats_2016$Year <- 2016
+team_stats_2017$Year <- 2017
+team_stats_2018$Year <- 2018
+
+#'###### -------------**Removing Asterisks**---------------------- ######
+
+# team_stats_1991 <- gsub("\\*", "", team_stats_1991$Team)
+# outcomes$Visitor <- gsub("\\*", "", outcomes$Visitor)
+
 
 #'###### -------------**Team Stats JOIN**-------------------- ######
 
-# Uhhhhh.....how the hell do I do this?
+join_test <- full_join(team_stats_1991, team_stats_1992)
+
+team_stats_1991
+team_stats_1992
+team_stats_1993
+team_stats_1994
+team_stats_1996
+team_stats_1997
+team_stats_1998
+team_stats_1999
+team_stats_2000
+team_stats_2001
+team_stats_2002
+team_stats_2003
+team_stats_2004
+team_stats_2006
+team_stats_2007
+team_stats_2008
+team_stats_2009
+team_stats_2010
+team_stats_2011
+team_stats_2012
+team_stats_2014
+team_stats_2015
+team_stats_2016
+team_stats_2017
+
 
 #'###### -------------**Loop**-------------------- ######
 
 # for (i in 1:length(lebron_table)) 
 #   assign(paste0("table_",i),data.frame(lebron_table[i]))
+
+
+
+
+
 
 
 #'###### -------------**Detritus of Importance**--------------- ######
