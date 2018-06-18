@@ -254,7 +254,7 @@ team_stats_2004
 #' team_stats_2005 <- team_stats_2005[c(2:22), c(2:30)]
 #' colnames(team_stats_2005)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
 #'                        21,22,23,24,25,26,27,28,29)] <- 
-#'   c("Team", "GP", "W", "L", "T", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
+#'   c("Team", "GP", "W", "L", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
 #'     "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
 #'     "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 #' team_stats_2005
@@ -270,9 +270,7 @@ team_stats_2006 <- table[[26]]
 team_stats_2006 <- team_stats_2006[c(2:30), c(2,4:32)]
 colnames(team_stats_2006)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2006
 
 #'###### -------------**2007**--------------- ######
@@ -286,9 +284,7 @@ team_stats_2007 <- table[[26]]
 team_stats_2007 <- team_stats_2007[c(2:30), c(2,4:32)]
 colnames(team_stats_2007)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2007
 
 #'###### -------------**2008**--------------- ######
@@ -302,9 +298,7 @@ team_stats_2008 <- table[[26]]
 team_stats_2008 <- team_stats_2008[c(2:30), c(2,4:32)]
 colnames(team_stats_2008)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2008
 
 #'###### -------------**2009**--------------- ######
@@ -318,9 +312,7 @@ team_stats_2009 <- table[[26]]
 team_stats_2009 <- team_stats_2009[c(2:30), c(2,4:32)]
 colnames(team_stats_2009)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2009
 
 #'###### -------------**2010**--------------- ######
@@ -334,9 +326,7 @@ team_stats_2010 <- table[[26]]
 team_stats_2010 <- team_stats_2010[c(2:30), c(2,4:32)]
 colnames(team_stats_2010)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2010
 
 #'###### -------------**2011**--------------- ######
@@ -350,9 +340,7 @@ team_stats_2011 <- table[[26]]
 team_stats_2011 <- team_stats_2011[c(2:30), c(2,4:32)]
 colnames(team_stats_2011)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2011
 
 #'###### -------------**2012**--------------- ######
@@ -366,9 +354,7 @@ team_stats_2012 <- table[[26]]
 team_stats_2012 <- team_stats_2012[c(2:30), c(2,4:32)]
 colnames(team_stats_2012)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2012
 
 #' #'###### -------------**2013 (lockout)**--------------- ######
@@ -398,9 +384,7 @@ team_stats_2014 <- table[[26]]
 team_stats_2014 <- team_stats_2014[c(2:30), c(2,4:32)]
 colnames(team_stats_2014)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2014
 
 #'###### -------------**2015**--------------- ######
@@ -414,9 +398,7 @@ team_stats_2015 <- table[[26]]
 team_stats_2015 <- team_stats_2015[c(2:30), c(2,4:32)]
 colnames(team_stats_2015)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2015
 
 #'###### -------------**2016**--------------- ######
@@ -430,9 +412,7 @@ team_stats_2016 <- table[[26]]
 team_stats_2016 <- team_stats_2016[c(2:30), c(2,4:32)]
 colnames(team_stats_2016)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2016
 
 #'###### -------------**2017**--------------- ######
@@ -446,9 +426,7 @@ team_stats_2017 <- table[[26]]
 team_stats_2017 <- team_stats_2017[c(2:30), c(2,4:32)]
 colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2017
 
 #'###### -------------**2018**--------------- ######
@@ -460,11 +438,9 @@ table[[26]]
 team_stats_2018 <- table[[26]]
 
 team_stats_2018 <- team_stats_2018[c(2:30), c(2,4:32)]
-colnames(team_stats_2017)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+colnames(team_stats_2018)[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                             21,22,23,24,25,26,27,28,29,30)] <- 
-  c("Team", "GP", "W", "L", "T", "OL", "Pts", "Pts %", "GF", "GA", "SRS", "SOS",
-    "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA", "PK%", "SH",
-    "SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
+  c("Team", "GP", "W", "L", "OL", "Pts", "Pts %", "GF", "GA", "SOW", "SOL",         "SRS", "SOS", "TG/G", "EVGF", "EVGA", "PP", "PPO", "PP%", "PPA", "PPOA",        "PK%", "SH","SHA", "PIM/G", "oPIM/G", "S", "S%", "SA", "SV%", "PDO")
 team_stats_2018
 
 ########################################################################
@@ -498,50 +474,32 @@ team_stats_2016$Year <- 2016
 team_stats_2017$Year <- 2017
 team_stats_2018$Year <- 2018
 
+
+#'###### -------------**Team Stats JOIN**-------------------- ######
+
+all_team_stats <- bind_rows(team_stats_1991, team_stats_1992, team_stats_1993,
+                        team_stats_1994, team_stats_1996, team_stats_1997,
+                        team_stats_1998, team_stats_1999, team_stats_2000,
+                        team_stats_2001, team_stats_2002, team_stats_2003,
+                        team_stats_2004, team_stats_2006, team_stats_2007,
+                        team_stats_2008, team_stats_2009, team_stats_2010,
+                        team_stats_2011, team_stats_2012, team_stats_2014,
+                        team_stats_2015, team_stats_2016, team_stats_2017,
+                        team_stats_2018)
+
+
 #'###### -------------**Removing Asterisks**---------------------- ######
 
 # team_stats_1991 <- gsub("\\*", "", team_stats_1991$Team)
 # outcomes$Visitor <- gsub("\\*", "", outcomes$Visitor)
 
 
-#'###### -------------**Team Stats JOIN**-------------------- ######
-
-join_test <- full_join(team_stats_1991, team_stats_1992)
-
-team_stats_1991
-team_stats_1992
-team_stats_1993
-team_stats_1994
-team_stats_1996
-team_stats_1997
-team_stats_1998
-team_stats_1999
-team_stats_2000
-team_stats_2001
-team_stats_2002
-team_stats_2003
-team_stats_2004
-team_stats_2006
-team_stats_2007
-team_stats_2008
-team_stats_2009
-team_stats_2010
-team_stats_2011
-team_stats_2012
-team_stats_2014
-team_stats_2015
-team_stats_2016
-team_stats_2017
 
 
 #'###### -------------**Loop**-------------------- ######
 
 # for (i in 1:length(lebron_table)) 
 #   assign(paste0("table_",i),data.frame(lebron_table[i]))
-
-
-
-
 
 
 
