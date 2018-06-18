@@ -32,6 +32,11 @@ outcomes %>%
 # Away team goal average: 2.711
 # Average total goals: 2.863
 
+#'###### -------------**Dput for CV Question**-------------- ######
+
+out_head <- dput(head(outcomes, 1000))
+out_head <- as.data.frame(out_head)
+
 #'###### -------------**Poisson Distribtion Model**-------------- ######
 
 outcomes <- outcomes %>% 
@@ -92,8 +97,6 @@ simulate_game <- function(stat_model, homeTeam, awayTeam, max_goals = 10) {
 
 simulate_game(model_one, "Nashville Predators", "Chicago Blackhawks", 
           max_goals = 10)
-
-
 
 
 
