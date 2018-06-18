@@ -81,6 +81,11 @@ for (i in 1:length(all_urls)) {
 
 }
 
+#'###### -------------**Dataframe Save**--------------- ######
+
+NHL_outcomes <- outcomes
+saveRDS(NHL_outcomes, "../Data/ACS_sub.rds")
+
 #'###### -------------**Saving into a package**--------------- ######
 
 # devtools::use_data(outcomes)

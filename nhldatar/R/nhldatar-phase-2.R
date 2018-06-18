@@ -487,20 +487,13 @@ all_team_stats <- bind_rows(team_stats_1991, team_stats_1992, team_stats_1993,
                         team_stats_2015, team_stats_2016, team_stats_2017,
                         team_stats_2018)
 
-
 #'###### -------------**Removing Asterisks**---------------------- ######
 
-# team_stats_1991 <- gsub("\\*", "", team_stats_1991$Team)
-# outcomes$Visitor <- gsub("\\*", "", outcomes$Visitor)
+all_team_stats$Team <- gsub("\\*", "", all_team_stats$Team)
 
+#'###### -------------**Dataframe Save**--------------- ######
 
-
-
-#'###### -------------**Loop**-------------------- ######
-
-# for (i in 1:length(lebron_table)) 
-#   assign(paste0("table_",i),data.frame(lebron_table[i]))
-
+saveRDS(all_team_stats, "../Data/NHL_stats.rda")
 
 
 #'###### -------------**Detritus of Importance**--------------- ######
