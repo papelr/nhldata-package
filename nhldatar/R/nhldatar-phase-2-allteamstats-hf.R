@@ -491,6 +491,12 @@ all_team_stats <- bind_rows(team_stats_1991, team_stats_1992, team_stats_1993,
 
 all_team_stats$Team <- gsub("\\*", "", all_team_stats$Team)
 
+#'###### -------------**Removing seasons w/out new OT rules**-------- ######
+
+#  2006 and up
+all_team_stats <- all_team_stats[-c(1:320), ]
+
+
 #'###### -------------**Dataframe Save**--------------- ######
 
 saveRDS(all_team_stats, "../Data/NHL_stats.rda")
