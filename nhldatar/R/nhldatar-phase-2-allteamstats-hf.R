@@ -487,6 +487,7 @@ all_team_stats <- bind_rows(team_stats_1991, team_stats_1992, team_stats_1993,
                         team_stats_2015, team_stats_2016, team_stats_2017,
                         team_stats_2018)
 
+
 #'###### -------------**Removing Asterisks**---------------------- ######
 
 all_team_stats$Team <- gsub("\\*", "", all_team_stats$Team)
