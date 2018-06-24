@@ -8,8 +8,24 @@
 
 library(tidyverse)
 library(vtreat)
+library(ROCR)
 
-#'###### -------------**Linear Model**---------------------- ######
+#'###### -------------**Functions**---------------------- ######
+
+# RMSE function
+rmse <- function(predcol, ycol) {
+  res = predcol-ycol
+  sqrt(mean(res^2))
+  }
+
+# R-squared function
+r_squared <- function(predcol, ycol) {
+  tss = sum( (ycol - mean(ycol))^2 )
+  rss = sum( (predcol - ycol)^2 )
+  1 - rss/tss
+  }
+
+#'###### -------------**Generalized Linear Model**------------- ######
 
 # Gets rid of years with Ties (so, 1990-2006)
 outcomes <- outcomes[-c(1:16632), ]
@@ -29,10 +45,11 @@ home_win_perc <- 7941 / 14532 # Home team wins 54.6% of the time
 away_win_perc <- 6591 / 14532
 
 # Linear model on full data set
-lm_model_full <- lm(Win ~ GHome + GVisitor, outcomes) # win = TRUE when home wins
+lm_model_full <- glm(Win ~ GHome + GVisitor, outcomes, family = "poisson")
 summary(lm_model_full)
 res_full <- lm_model$residuals
 rmse_full <- sqrt(mean(res^2))
+outcomes$Prediction <- predict(lm_model_full, outcomes)
 
 # Splitting the data
 N <- nrow(outcomes)
@@ -50,4 +67,22 @@ rmse_train <- sqrt(mean(res_train^2))
 # Predict using split sets
 outcomes_train$Prediction <- predict(lm_model_train)
 outcomes_test$Prediction <- predict(lm_model_train, outcomes_test, type = "response")
+
+# Cross validation
+splitplan <- kWayCrossValidation(nrow(outcomes), 5, NULL, NULL)
+str(splitplan)
+
+k <- 5 # Number of folds
+outcomes$pred.cv <- 0 
+for(i in 1:k) {
+  split <- splitplan[[i]]
+  model <- glm(Win ~ GHome + GVisitor, data = outcomes[split$train, ])
+  outcomes$pred.cv[split$app] <- predict(model, newdata = outcomes[split$app, ])
+}
+
+# The two RMSE's are about the same
+rmse_full
+rmse_cv <- sqrt(mean(model$residuals^2))
+
+
 
