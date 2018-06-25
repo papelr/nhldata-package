@@ -4,6 +4,334 @@
 #' Author: Robert Papel
 #' ---------
 
+#'###### -------------**bivpois table**---------------------- ######
+
+"bivpois.table" <-
+  function(x, y, lambda = c(1, 1, 1))
+  {
+    # ------------------------------------------------------------------------------
+    # Karlis and Ntzoufras (2003, 2004)
+    # EM algorithms for Bivariate Poisson Models
+    # ------------------------------------------------------------------------------
+    # x     : 1st count variable
+    # y     : 2nd count variable
+    # lambda: parameters of the bivariate poisson distribution.
+    # ------------------------------------------------------------------------------
+    
+    j<-0
+    n <- length(x)
+    maxy <- c(max(x), max(y))	#Set initial values for parameters
+    lambda1 <- lambda[1]
+    lambda2 <- lambda[2]
+    lambda3 <- lambda[3]
+    if((x == 0) | (y == 0)) {
+      prob <- matrix(NA, nrow = maxy[1] + 1, ncol = maxy[2]+1, byrow = T)
+      prob[maxy[1] + 1, maxy[2] + 1] <- exp( - lambda3) * 
+        dpois(x[j], lambda1[j]) * dpois(y[j], lambda2[j])
+    }
+    else {
+      prob <- matrix(NA, nrow = maxy[1] + 1, ncol = maxy[2]+1, byrow = T)
+      k <- 1
+      m <- 1
+      prob[k, m] <- exp( - lambda1 - lambda2 - lambda3)
+      for(i in 2:(maxy[1] + 1)) {
+        prob[i, 1] <- (prob[i - 1, 1] * lambda1)/(i - 1)
+      }
+      for(j in 2:(maxy[2] + 1)) {
+        prob[1, j] <- (prob[1, j - 1] * lambda2)/(j - 1)
+      }
+      for(j in 2:(maxy[2] + 1)) {
+        for(i in 2:(maxy[1] + 1)) {
+          prob[i, j] <- (lambda1 * prob[i - 1, j] + 
+                           lambda3 * prob[i - 1, j - 1])/(i - 1)
+        }
+      }
+    }
+    result <- prob
+    result
+  }
+
+#'###### -------------**pbivpois**---------------------- ######
+
+"pbivpois" <-
+  function(x, y=NULL, lambda = c(1, 1, 1), log=FALSE) {
+    # ------------------------------------------------------------------------------
+    # Karlis and Ntzoufras (2003, 2004)
+    # EM algorithms for Bivariate Poisson Models
+    # ------------------------------------------------------------------------------
+    # x      : matrix or vector of length n
+    # y      : vector of length n. If x is matrix then it is not used
+    # lambda : parameters of the bivariate poisson distribution
+    # log    : argument controlling the calculation of the log-probability or the 
+    #          probability function. 
+    # ------------------------------------------------------------------------------
+    #	
+    if ( is.matrix(x) ) {
+      var1<-x[,1]
+      var2<-x[,2]
+    }
+    else if (is.vector(x)&is.vector(y)){
+      if (length(x)==length(y)){
+        var1<-x
+        var2<-y
+      }
+      else{
+        stop('lengths of x and y are not equal')
+      }	
+    }
+    else{
+      stop('x is not a matrix or x and y are not vectors')
+    }
+    n <- length(var1)
+    logbp<-vector(length=n)
+    #
+    for (k in 1:n){
+      x0<-var1[k]
+      y0<-var2[k]
+      xymin<-min( x0,y0 )
+      lambdaratio<-lambda[3]/(lambda[1]*lambda[2])
+      #	
+      i<-0:xymin
+      sums<- -lgamma(var1[k]-i+1)-lgamma(i+1)-lgamma(var2[k]-i+1)+i*log(lambdaratio)
+      maxsums <- max(sums)
+      sums<- sums - maxsums
+      logsummation<- log( sum(exp(sums)) ) + maxsums 
+      logbp[k]<- -sum(lambda) + var1[k] * log( lambda[1] ) + var2[k] * log( lambda[2] ) + logsummation 
+    }
+    if (log) { result<-    logbp }
+    else     { result<-exp(logbp)  }
+    result
+    #	end of function bivpois
+  }
+
+#'###### -------------**simple beta**---------------------- ######
+
+"simple.bp" <-
+  function(x, y, ini3=1.0, maxit=300, pres=1e-8)
+  {
+    #
+    # ------------------------------------------------------------------------------
+    # Karlis and Ntzoufras (2003, 2004)
+    # (last revision 25/8/2005)
+    # Athens University of Economics and Business
+    #
+    # EM algorithms for Bivariate Poisson Models
+    # ------------------------------------------------------------------------------
+    #
+    # x       : matrix or vector of length n
+    # y       : vector of length n. If x is matrix then it is not used
+    # ini3    : initial value for lambda3
+    # maxit   : maximum number of iterations 
+    # pres    : precision of the relative likelihood difference after which EM stops
+    # ------------------------------------------------------------------------------
+    # Data length
+    #
+    #
+    if ( is.matrix(x) ) {
+      var1<-x[,1]
+      var2<-x[,2]
+    }
+    else if (is.vector(x)&is.vector(y)){
+      if (length(x)==length(y)){
+        var1<-x
+        var2<-y
+      }
+      else{
+        stop('lengths of x and y are not equal')
+      }	
+    }
+    else{
+      stop('x is not a matrix or x and y are not vectors')
+    }
+    
+    #
+    #
+    #
+    n<-length(var1)
+    #
+    # initial values
+    s<-rep(0,n)
+    like<-1:n*0
+    zero<- ( var1==0 )|( var2==0 )
+    #
+    #
+    #
+    # Initial values for lambda
+    
+    lambda3<- ini3
+    lambda1<- max( 0.1, mean(var1)-lambda3 )
+    lambda2<- max( 0.1, mean(var2)-lambda3 )
+    #
+    #
+    difllike<-1000.0
+    loglike0<-1000.0
+    i<-0
+    loglike<-rep(0,maxit)
+    while ( (difllike>pres) && (i <= maxit) ) {
+      i<-i+1
+      #####   E step  ######
+      for (j in 1:n) {
+        if (zero[j]) {
+          s[j]<-0;
+          like[j]<- log(dpois(var1[j], lambda1)) + log(dpois(var2[j], lambda2))-lambda3;
+        }
+        else {
+          lbp1<- pbivpois( var1[j]-1, var2[j]-1, lambda=c(lambda1,lambda2,lambda3), log=TRUE );
+          lbp2<- pbivpois( var1[j]  , var2[j]  , lambda=c(lambda1,lambda2,lambda3) , log=TRUE );
+          
+          s[j]<-exp( log(lambda3) + lbp1 - lbp2 );
+          like[j]<-lbp2;
+        }
+      }
+      ##### end of E step  ######
+      x1<-var1-s
+      x2<-var2-s
+      loglike[i]<-sum(like)
+      difllike<-abs( (loglike0-loglike[i])/loglike0 )
+      loglike0<-loglike[i]
+      #
+      #
+      #####   M step  ######
+      #
+      # 	fit model on lambda3
+      lambda1<-mean(x1)
+      lambda2<-mean(x2)
+      lambda3<-mean(s)
+      #####   end of M step  ######
+      printpars<-c(i,lambda1, lambda2, lambda3, loglike[i] )
+      names(printpars)<-c('Iter.', 'lambda1', 'lambda2', 'lambda3','loglike' )
+      print( round(printpars ,3 ) )
+      cat( 'Relative Difference in Loglike:', difllike, '\n' ) 
+    }
+    #
+    #	calculation of BIC and AIC of Bivariate Poisson model
+    noparams<- 3 
+    AIC<- -2*loglike[i] + noparams * 2
+    BIC<- -2*loglike[i] + noparams * log(2*n)
+    #	
+    #		
+    #	Calculation of BIC, AIC of Poisson saturated model
+    x.mean<-var1
+    x.mean[var1==0]<-1e-12
+    y.mean<-var2
+    y.mean[var2==0]<-1e-12
+    AIC.sat <-  sum( log( dpois( var1 , x.mean ) ) + log( dpois(var2 , y.mean) ) )
+    BIC.sat <-  -2 * AIC.sat + (2*n)* log(2*n)
+    AIC.sat <-  -2 * AIC.sat + (2*n)* 2
+    #
+    #		
+    #	Calculation of BIC, AIC of simple Poisson model
+    x.mean<-mean(var1)
+    y.mean<-mean(var2)
+    AIC.pois <-  sum(log( dpois( var1 , x.mean ) ) + log( dpois( var2 , y.mean ) ))
+    BIC.pois <-  -2 * AIC.pois + 2* log(2*n)
+    AIC.pois <-  -2 * AIC.pois + 2* 2
+    
+    AICtotal<-c(AIC.sat, AIC.pois, AIC)
+    BICtotal<-c(BIC.sat, BIC.pois, BIC )
+    
+    names(AICtotal)<- c( 'Saturated', 'DblPois', 'BivPois' )
+    names(BICtotal)<- c( 'Saturated', 'DblPois', 'BivPois' )
+    #
+    # Calculation of fitted values
+    result<-list(lambda=c(lambda1, lambda2, lambda3),loglikelihood=loglike[1:i],
+                 parameters=noparams, AIC=AICtotal, BIC=BICtotal ,iterations=i )
+    #
+    result
+    #
+    #
+  }
+
+#'###### -------------**splitbeta**---------------------- ######
+
+"splitbeta" <-
+  function( bvec ){
+    #
+    # ------------------------------------------------------------------------------------
+    # Karlis and Ntzoufras (2004)
+    # EM algorithms for Bivariate Poisson Models
+    # ------------------------------------------------------------------------------------
+    #	Internal function for spliting beta parameters according to their interpretation
+    #
+    #	(c) June 2004 I. Ntzoufras, Chios, Greece
+    # ------------------------------------------------------------------------------------
+    #
+    p3<-length(bvec)
+    
+    indx1<-grep( '\\(l1\\):', names(bvec) ) # identify parameters for lambda1
+    indx2<-grep( '\\(l2\\):', names(bvec) ) # identify parameters for lambda2
+    indx3<-grep( '\\(l2-l1\\):', names(bvec) ) # identify difference parameters for lambda2
+    #
+    #	create temporary labels to identify common parameters
+    tempnames<-sub( '\\(l2-l1)\\:', 'k', names(bvec)  )
+    tempnames<-sub( '\\(l2)\\:', 'k', tempnames  )
+    tempnames<-sub( '\\(l1)\\:', 'k', tempnames  )
+    
+    indx4<-tempnames%in%names(bvec) # common parameters are identified as TRUE
+    #	
+    beta1<-c(bvec[indx4],bvec[indx1])
+    beta2<-c(bvec[indx4],bvec[indx3],bvec[indx2])
+    indexbeta2<-c( rep(0,sum(indx4)), rep(1,length(indx3)), rep(2,length(indx2)) )
+    
+    names(beta1)<-sub('\\(l1\\):','',names(beta1))
+    names(beta2)<-sub('\\(l2\\):','',names(beta2))
+    names(beta2)<-sub('\\(l2-l1\\):','',names(beta2))
+    
+    beta1<-beta1[order(names(beta1))]
+    indexbeta2<-indexbeta2[order(names(beta2))]
+    beta2<-beta2[order(names(beta2))]
+    ii<-1:length(beta2)
+    ii<-ii[indexbeta2==0]
+    for ( i in ii )	{
+      #		beta2[i]<-sum( beta2[ grep( names(beta2)[i], names(beta2) ) ] )
+      beta2[i]<-sum( beta2[ names(beta2)[i]==names(beta2) ] )
+    }
+    beta2<-beta2[indexbeta2%in%c(0,2)]
+    
+    btemp<-list(beta1=beta1,beta2=beta2)
+    btemp
+  }
+
+
+#'###### -------------**newnamesbeta**-------------- ######
+
+"newnamesbeta" <-
+  function( bvec ) {
+    #
+    # ------------------------------------------------------------------------------------
+    # Karlis and Ntzoufras (2004)
+    # EM algorithms for Bivariate Poisson Models
+    # ------------------------------------------------------------------------------------
+    #	Internal function for renaming parameters according to their interpretation
+    #
+    #	(c) June 2004 I. Ntzoufras, Chios, Greece
+    #	(c) Revised on May 2005 by I. Ntzoufras, Athens, Greece	
+    # ------------------------------------------------------------------------------------
+    #
+    #	(l1): is parameter rererring to the log(lamdba1)
+    #	(l2): is parameter rererring to the log(lamdba2)
+    #	(l2-l1): this parameter is added to the current parameter of l1
+    #	no label: the parameter is common for both log(lambda1) and log(lambda2)
+    # ------------------------------------------------------------------------------------
+    
+    names(bvec)<-sub('\\)','',names(bvec)) 							#remove right parenthesis
+    
+    names(bvec)<-sub('\\(Intercept','(Intercept)',names(bvec)) 				# replace "(Intercept" with "(Intercept)"
+    names(bvec)[pmatch('internal.data1$noncommon2',names(bvec))]<-'(l2-l1):(Intercept)'	# replace 'internal.data1$noncommon2' with 'l2-l1' for intercept
+    names(bvec)<-sub('internal.data1\\$noncommon2:','(l2-l1):',names(bvec))			# the same for the rest of parameters
+    names(bvec)<-sub('internal.data1\\$noncommon0:','(l1):',names(bvec))			# replace 'internal.data1\\$noncommon0:' by '(l1)'
+    names(bvec)<-sub('internal.data1\\$noncommon1:','(l2):',names(bvec))			# replace 'internal.data1\\$noncommon1:' by '(l2)'
+    
+    names(bvec)<-sub(':internal.data1\\$noncommon2','(l2-l1):',names(bvec))			# same as above with ":" in front of expressions
+    names(bvec)<-sub(':internal.data1\\$noncommon0','(l1):',names(bvec))
+    names(bvec)<-sub(':internal.data1\\$noncommon1','(l2):',names(bvec))
+    
+    names(bvec)<-sub('I\\(internal.data1\\$indct1 \\* ','(l1):',names(bvec))		# replace 'I(internal.data1$indct1 * ' with '(l1):'
+    names(bvec)<-sub('I\\(internal.data1\\$indct2 \\* ','(l2):',names(bvec))		# replace 'I(internal.data1$indct2 * ' with '(l2):'
+    
+    names(bvec)
+  }
+
 #'###### -------------**lm.bp**-------------- ######
 "lm.bp" <-
   function( l1, l2, l1l2=NULL, l3=~1, data, common.intercept=FALSE, zeroL3=FALSE, maxit=300, pres=1e-8, verbose=getOption('verbose') )
@@ -226,7 +554,7 @@
       # ----------------------------------------------------
       #	creating names for parameters
       #	
-      names(beta)<-newnamesbeta( beta )
+      names(beta) <- newnamesbeta(beta)
       #
       # 	end of name creations (l1, l2, l2-l1, blank)
       #  -------------------------------------------------
@@ -312,7 +640,7 @@
         p3<-length(m$coef)
         beta<-m$coef
         #	creating names for parameters
-        names(beta)<-newnamesbeta( beta )
+        names(beta) <- newnamesbeta(beta)
         #	
         #	
         
