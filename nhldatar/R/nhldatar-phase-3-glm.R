@@ -1,6 +1,6 @@
 #' ---------
 #' Title: Linear Model 
-#' Subtitle: lm()
+#' Subtitle: glm()
 #' Author: Robert Papel
 #' ---------
 

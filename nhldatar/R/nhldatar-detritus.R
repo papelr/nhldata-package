@@ -196,3 +196,10 @@ test_predict_outcomes <- predict(model_two, test_outcomes[,-1])
 # Confusion Matrix
 table(predict = test_predict_outcomes, test_outcomes$Home)
 
+
+
+
+
+str(ex4.ita91)
+
+
