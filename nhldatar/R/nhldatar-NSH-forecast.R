@@ -10,6 +10,7 @@ library(tidyverse)
 library(rvest)
 library(vars)
 library(forecast)
+library(prophet)
 
 #'###### -------------**Links for NSH**---------- ######
 
@@ -41,9 +42,30 @@ for (i in 1:length(NSH_links)) {
   
 }
 
-#'###### -------------**Removes League Averages**-------------- ######
+#'###### -------------**Tidying Data**-------------- ######
 
+# Removing "League Average" rows
 NSH_stats <- NSH_stats[, -26]
 NSH_stats <- NSH_stats[-c(2,4,6,8,10,12,14,16,18,20,22,24), ]
+
+# Creating "Year" column
 NSH_stats$Year <- c(2006,2007,2008,2009,2010,2011,
                     2012,2014,2015,2016,2017,2018)
+
+# Selecting columns & stats
+NSH_stats <- NSH_stats %>% 
+  select_("Year", "W", "L", "PTS", "GF", "GA", "S", "SA")  
+  
+# Creating time series
+NSH_ts <- ts(NSH_stats[ ,setdiff(names(NSH_stats), c("Team", "Year"))],
+            start = c(2006),
+            end = c(2017),
+            frequency = 1)
+class(NSH_ts)
+
+# Autoplot
+autoplot(NSH_ts[,3]) 
+
+#'###### -------------**Forecasting on Team Year**-------------- ######
+
+# ARIMA models
