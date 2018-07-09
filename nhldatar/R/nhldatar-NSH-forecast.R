@@ -57,16 +57,18 @@ NSH_stats <- NSH_stats %>%
   select_("Year", "W", "L", "PTS", "GF", "GA", "S", "SA")  
   
 # Creating time series
-NSH_ts <- ts(NSH_stats[ ,setdiff(names(NSH_stats), c("Team", "Year"))],
+NSH_ts <- ts(NSH_stats[ ,setdiff(names(NSH_stats), c("Team"))],
             start = c(2006),
             end = c(2018),
             frequency = 1)
 class(NSH_ts)
+NSH_ts <- NSH_ts[-13, ]
 NSH_ts <- na.mean(NSH_ts, option = "mean")
+
 
 # Autoplot
 autoplot(NSH_ts, facets = T) +
-  scale_x_continuous(breaks = seq(2006,2018))
+  scale_x_continuous(breaks = seq(2006, 2018))
 Acf(NSH_ts[,6])
 
 #'###### -------------**Forecasting on Team Seasons**-------------- ######
@@ -94,20 +96,23 @@ autoplot(forecast.m2) +
   ylim(65, 125)
 
 
-# VARs models
-var1 <- VAR(NSH_ts[, 3:5], p = 1, type = "both", ic = c("AIC"))
+# VAR models
+VARselect(NSH_ts[, 3:5], lag.max = 8)
+var1 <- VAR(NSH_ts[, 3:5], p = 2, type = "both", ic = c("AIC"))
 forecast.var1 <- forecast(var1, h = 2) 
 autoplot(forecast.var1) +
   scale_x_continuous(breaks = seq(2006, 2022))
 
-var2 <- VAR(NSH_ts[, 3:4], p = 2)
-var2 %>% 
-  forecast() %>% 
-  autoplot()
+# serial.test(var1, type = "PT.adjusted")
 
-var3 <- VAR(NSH_ts[, 3:4], p = 3)
-var3 %>% 
-  forecast() %>% 
-  autoplot()
+var2 <- VAR(NSH_ts[, 3:5], p = 2, type = "both")
+forecast.var2 <- forecast(var2, h = 2)
+autoplot(forecast.var2) +
+  scale_x_continuous(breaks = seq(2006, 2022))
+
+var3 <- VAR(NSH_ts[, 3:5], p = 3, type = "both", ic = c("AIC"))
+forecast.var3 <- forecast(var3, h = 2) 
+autoplot(forecast.var3) +
+  scale_x_continuous(breaks = seq(2006, 2022))
 
 
