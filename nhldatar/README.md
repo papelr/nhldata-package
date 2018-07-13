@@ -1,5 +1,7 @@
-# nhldatar package
+# nhldatar package - mostly Predators stats/forecasts
 ***
+
+#### This package is not great yet
 
 #### This package scrapes datasets from hockey-reference.com (all credit for statistics compilation goes to them!). 
 
